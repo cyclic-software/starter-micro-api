@@ -114,7 +114,7 @@ async function slunatko() {
     
     
     app.get("/photo", (req, res) => {
-      const person = client.photos.find(p => p.id === req.query.id);
+      const person = client.photos.find(p => p.id === req.query._id);
       res.render("photo", {
         title: `About ${person.firstname} ${person.lastname}`,
         client: result,
