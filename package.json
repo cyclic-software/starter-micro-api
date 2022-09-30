@@ -1,13 +1,19 @@
 {
-  "name": "starter-micro-api",
-  "version": "1.0.0",
-  "description": "Cyclic.sh micro api starter",
-  "main": "index.js",
+  "name": "simple-node-website",
+  "version": "0.1.0",
+  "description": "A simple website built with Node, Express and Pug",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx nodemon server.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Ayo Isaiah",
+  "license": "MIT",
   "dependencies": {
+    "express": "^4.16.3",
+    "mongodb": "^4.10.0",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }

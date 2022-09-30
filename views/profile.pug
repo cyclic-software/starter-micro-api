@@ -1,0 +1,24 @@
+extends default
+
+block header
+
+block content
+
+  
+
+  div.profile
+    div.profile-image(style=`background: url('${imgSrc}') top center
+    no-repeat; background-size: cover;`)
+
+    div 
+      console.log(resultt)
+    div.profile-details
+      h1.profile-name
+        | #{resultt.firstname} #{resultt.lastname}
+      h2.profile-tagline
+        | #{resultt.tagline}
+      p.profile-bio
+        | #{resultt.bio}
+      a.button.button-twitter(href=`${resultt.twitter}`)
+        | Follow me on Twitter
+  
