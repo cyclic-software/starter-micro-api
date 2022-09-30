@@ -1,7 +1,7 @@
 {
   "name": "starter-micro-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Cyclic.sh micro api starter",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
