@@ -7,18 +7,16 @@ block content
   
 
   div.profile
-    div.profile-image(style=`background: url('${imgSrc}') top center
+    div.profile-image(style=`background: url('${person.imgSrc}') top center
     no-repeat; background-size: cover;`)
 
-    div 
-      - console.log(profile)
-    div.profile-details
+    ddiv.profile-details
       h1.profile-name
-        | #{resultt.firstname} #{resultt.lastname}
+        | #{person.firstname} #{person.lastname}
       h2.profile-tagline
-        | #{resultt.tagline}
+        | #{person.tagline}
       p.profile-bio
-        | #{resultt.bio}
-      a.button.button-twitter(href=`${resultt.twitter}`)
+        | #{person.bio}
+      a.button.button-twitter(href=`${person.twitter}`)
         | Follow me on Twitter
   
