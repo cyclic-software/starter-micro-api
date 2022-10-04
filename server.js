@@ -3,7 +3,7 @@ const { MongoClient } = require('mongodb');
 
 async function main() {
     
-    const uri = "mongodb+srv://pacholicek:heslo@cluster0.elxcvlk.mongodb.net/?retryWrites=true&w=majority";
+    const uri = "mongodb+srv://pacholicek:nvf8394DEWeir@cluster0.elxcvlk.mongodb.net/?retryWrites=true&w=majority";
     const client = new MongoClient(uri);
 
     try {
@@ -82,7 +82,8 @@ async function slunatko() {
   const uri = "mongodb+srv://pacholicek:nvf8394DEWeir@cluster0.elxcvlk.mongodb.net/?retryWrites=true&w=majority";
   const client = new MongoClient(uri);
   const result = await client.db("people").collection("profiles").find().toArray();
-  const resultt = await client.db("people").collection("profiles").find(p => p.id === req.query.id);
+  //console.log(result);
+  //const resultt = await client.db("people").collection("profiles").find(p => p.id === req.query.id);
                   
 
  
@@ -104,20 +105,29 @@ async function slunatko() {
   });
 
     app.get("/profile", (req, res) => {
-      
+        var person = result.find(p => p.id === req.query.id);
+        //console.log('person: '+JSON.stringify(person));
+        //console.log(person);
+
+
     res.render("profile", {
-       //title: `About ${person.firstname} ${person.lastname}`,
-       client: resultt
+        
+       title: `About ${person.firstname} ${person.lastname}`,
+        person
      
      });
     });
     
     
     app.get("/photo", (req, res) => {
-      const person = client.photos.find(p => p.id === req.query.id);
+        //const person = client.db("people").collection("profiles").find(p => p.id === req.query.id);
+        
+        var person = client.db("people").collection("profiles").find(p => p.id === req.query.id);
+        console.log('person: '+person.id);
+      //const person = client.photos.find(p => p.id === req.query.id);
       res.render("photo", {
         title: `About ${person.firstname} ${person.lastname}`,
-        client: result,
+        client: person,
         person
       });
     });
