@@ -140,8 +140,13 @@ async function slunatko() {
 slunatko();
 
 
+var http = require('http');
+http.createServer(function (req, res) {
+    console.log(`Just got a request at ${req.url}!`)
+    res.write('Yo!');
+    res.end();
+}).listen(process.env.PORT || 3000);
 
-
-const server = app.listen(3000, () => {
-  console.log(`Express running → PORT ${server.address().port}`);
-});
+//const server = app.listen(3000, () => {
+  //console.log(`Express running → PORT ${server.address().port}`);
+//});
