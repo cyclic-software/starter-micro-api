@@ -1,0 +1,14 @@
+extends default
+
+block content
+  div.container
+    each person in client
+      
+      div.person
+        a(href=`/photo?id=${person.id}`)
+          div.person-image(style=`background: url('${person.imgSrc}') top center
+             no-repeat; background-size: cover;`)
+        h2.person-name
+           | #{person.firstname} #{person.lastname}
+        a(href=`/profile?id=${person.id}`)
+           | View Profile
