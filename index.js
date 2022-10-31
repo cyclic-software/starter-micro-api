@@ -3,9 +3,7 @@ var http = require('http');
 http.createServer(function (req, res) {
     const url = "https://jsonplaceholder.typicode.com/posts/1";
     console.log(`Just got a request at ${req.url}!`)
-fetch('https://jsonplaceholder.typicode.com/todos/1')
-  .then(response => response.json())
-  .then(json =>  res.write(json))
-    
+
+    res.write(req.url)
     res.end();	
 }).listen(process.env.PORT || 3000);
