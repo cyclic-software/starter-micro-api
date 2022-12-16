@@ -1,5 +1,6 @@
-import fetch from 'node-fetch';
-import cheerio from 'cheerio';
+const fetch = require('node-fetch');
+const cheerio = require('cheerio');
+const http = require('http');
 
 async function parseData() {
   // Fetch data from the Investing.com website
