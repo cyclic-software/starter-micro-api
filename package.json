@@ -1,13 +1,55 @@
 {
-  "name": "starter-micro-api",
-  "version": "1.0.0",
-  "description": "Cyclic.sh micro api starter",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "nocodb-root",
+  "description": "NocoDB Root",
+  "private": true,
+  "author": {
+    "name": "NocoDB Inc",
+    "url": "https://nocodb.com/"
   },
-  "author": "",
-  "license": "ISC",
+  "homepage": "https://github.com/nocodb/nocodb",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nocodb/nocodb.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nocodb/nocodb/issues"
+  },
+  "license": "AGPL-3.0-or-later",
+  "devDependencies": {
+    "fs": "0.0.1-security",
+    "lerna": "^3.20.1",
+    "husky": "^8.0.0",
+    "xlsx": "^0.17.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx lint-staged"
+    }
+  },
+  "lint-staged": {
+    "scripts/playwright/**/*.{ts,tsx,js,json}": [
+      "npm run lint:staged:playwright"
+    ]
+  },
+  "scripts": {
+    "lint:staged:playwright": "cd ./tests/playwright; npx lint-staged; cd -",
+    "build:common": "cd ./packages/nocodb-sdk; npm install; npm run build",
+    "install:common": "cd ./packages/nocodb; npm install ../nocodb-sdk; cd ../nc-gui; npm install ../nocodb-sdk",
+    "start:web": "npm run build:common ; cd ./packages/nc-gui; npm install ../nocodb-sdk; npm install; ANT_MESSAGE_DURATION=0.5 npm run dev",
+    "test:travis": "git log --pretty=format:'%h' -n 1 --skip 1 | xargs  lerna run test:travis --since",
+    "lerna:install": "git log --pretty=format:'%h' -n 1 --skip 1 | xargs  lerna bootstrap --ignore nc-cli --since",
+    "updated:xc-migrator": "lerna run publish --scope xc-migrator && lerna run xc && lerna publish && npm install -f xc-cli",
+    "doc": "lerna run doc",
+    "install:local:dep": "cd packages/nc-lib-gui;npm uninstall -S xc-lib;rm package-lock.json; npm i ../../../xc-lib-private; cd ../xc-instant;npm uninstall -S xc-lib xc-lib-gui;npm i ../../../xc-lib-private;npm i ../xc-lib-gui",
+    "install:npm:dep": "cd packages/nc-lib-gui;npm uninstall -S xc-lib; npm i -S xc-lib@latest; cd ../xc-instant;npm uninstall -S xc-lib xc-lib-gui;npm i -S xc-lib@latest xc-lib-gui@latest;npm i ../xc-lib-gui",
+    "prepare": "husky install",
+    "start:pg": "docker-compose -f ./tests/playwright/scripts/docker-compose-pg.yml up -d",
+    "stop:pg": "docker-compose -f ./tests/playwright/scripts/docker-compose-pg.yml down"
+  },
   "dependencies": {
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3",
+    "pg": "^8.7.3",
+    "sqlite3": "^5.0.2"
   }
 }
