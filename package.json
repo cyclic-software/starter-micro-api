@@ -1,13 +1,20 @@
 {
-  "name": "starter-micro-api",
+  "name": "fake-server",
   "version": "1.0.0",
-  "description": "Cyclic.sh micro api starter",
-  "main": "index.js",
+  "description": "",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mohammad-Daaboul98/Blog-server.git"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-  }
+  "bugs": {
+    "url": "https://github.com/Mohammad-Daaboul98/Blog-server/issues"
+  },
+  "homepage": "https://github.com/Mohammad-Daaboul98/Blog-server#readme"
 }
