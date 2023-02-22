@@ -1,13 +1,19 @@
 {
-  "name": "starter-micro-api",
+  "name": "ariya-server",
   "version": "1.0.0",
   "description": "Cyclic.sh micro api starter",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "socket.io": "^4.6.1"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.7",
+    "utf-8-validate": "^5.0.10"
   }
 }

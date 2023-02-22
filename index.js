@@ -1,6 +1,14 @@
-var http = require('http');
-http.createServer(function (req, res) {
-    console.log(`Just got a request at ${req.url}!`)
-    res.write('Yo!');
-    res.end();
-}).listen(process.env.PORT || 3000);
+import { Server } from "socket.io";
+
+const io = new Server({
+  /* options */
+});
+
+console.log("Server Initialized...");
+
+io.on("connection", (socket) => {
+  socket.emit("hi", "hi client");
+  console.log("connection");
+});
+
+io.listen(11000);
