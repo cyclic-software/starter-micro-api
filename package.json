@@ -2,10 +2,10 @@
   "name": "crash-course",
   "version": "1.0.0",
   "description": "a node crash course",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
