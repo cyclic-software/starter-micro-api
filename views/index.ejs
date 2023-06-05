@@ -12,6 +12,14 @@
         <a class="single" href="/blogs/<%= blog._id %>">
           <h3 class="title"><%= blog.title %></h3>
           <p class="snippet"><%= blog.snippet %></p>
+          <i><small>
+            <% for (i = 0; i < blog.tags.length; i++) { %>
+              <%= blog.tags[i] %>
+              <% if (i != blog.tags.length - 1) { %>
+                , 
+              <% } %>
+            <% } %>
+          </small></i>
         </a>
       <% }) %>
     <% } else { %>

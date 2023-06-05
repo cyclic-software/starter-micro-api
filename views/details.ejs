@@ -6,8 +6,20 @@
 
   <div class="details content">
     <h2><%= blog.title %></h2>
+    <h3><%= blog.snippet %></h3>
     <div class="content">
       <p><%= blog.body %></p>
+    </div>
+    <br>
+    <div>
+      <i><small>
+        <% for (i = 0; i < blog.tags.length; i++) { %>
+          <%= blog.tags[i] %>
+          <% if (i != blog.tags.length - 1) { %>
+            , 
+          <% } %>
+        <% } %>
+      </small></i>
     </div>
     <a class="delete" data-doc="<%= blog._id %>">
       <img src="/trashcan.svg" alt="delete icon">
