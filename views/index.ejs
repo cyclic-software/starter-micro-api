@@ -14,9 +14,7 @@
           <p class="snippet"><%= blog.snippet %></p>
           <i><small>
             <% for (i = 0; i < blog.tags.length; i++) { %>
-              <%= blog.tags[i] %>
-              <% if (i != blog.tags.length - 1) { %>
-                , 
+              <%= blog.tags[i] %><% if (i != blog.tags.length - 1) { %>,
               <% } %>
             <% } %>
           </small></i>

@@ -28,9 +28,12 @@ const blog_create_get = (req, res) => {
 
 const blog_create_post = (req, res) => {
   const blog = new Blog(req.body);
-  blog.tags = req.body.tags_combined.split(',');
-  for (i = 0; i < blog.tags.length; i++) {
-    blog.tags[i] = blog.tags[i].trim();
+  const tags = req.body.tags_combined.split(',');
+  for (i = 0; i < tags.length; i++) {
+    tags[i] = tags[i].trim();
+    if (tags[i].length > 0) {
+      blog.tags.push(tags[i]);
+    }
   }
   blog.save()
     .then(result => {
