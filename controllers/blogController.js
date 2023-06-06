@@ -3,7 +3,7 @@ const Blog = require('../models/blog');
 const blog_index = (req, res) => {
   Blog.find().sort({ createdAt: -1 })
     .then(result => {
-      res.render('index', { blogs: result, title: 'All blogs' });
+      res.render('index', { blogs: result, title: 'All blogs', tagsToSearch: [] });
     })
     .catch(err => {
       console.log(err);
@@ -44,6 +44,24 @@ const blog_create_post = (req, res) => {
     });
 }
 
+const blog_tag_search = (req, res) => {
+  const tagsString = req.params.tags;
+  const tags = tagsString.split(',');
+  var tagsSearch = [];
+  for (i = 0; i < tags.length; i++) {
+    tags[i] = tags[i].trim();
+    if (tags[i].length > 0)
+      tagsSearch.push(tags[i]);
+  }
+  Blog.find().sort({ createdAt: -1 })
+    .then(result => {
+      res.render('index', { blogs: result, title: 'All blogs', tagsToSearch: tagsSearch });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+}
+
 const blog_delete = (req, res) => {
   const id = req.params.id;
   Blog.findByIdAndDelete(id)
@@ -60,5 +78,6 @@ module.exports = {
   blog_details, 
   blog_create_get, 
   blog_create_post, 
+  blog_tag_search,
   blog_delete
 }
