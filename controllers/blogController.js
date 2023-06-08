@@ -79,6 +79,7 @@ const blog_edit_post = (req, res) => {
   const id = req.params.id;
   const blog = new Blog(req.body);
   blog._id = id;
+  blog.tags = [];
   blog.isNew = false;
   const tags = req.body.tags_combined.split(',');
   for (i = 0; i < tags.length; i++) {
