@@ -1,3 +1,4 @@
+const { result } = require('lodash');
 const Blog = require('../models/blog');
 
 const blog_index = (req, res) => {
@@ -62,6 +63,39 @@ const blog_tag_search = (req, res) => {
     });
 }
 
+const blog_edit = (req, res) => {
+  const id = req.params.id;
+  Blog.findById(id)
+    .then(result => {
+      res.render('editdetails', { blog: result, title: 'Edit Blog Details' });
+    })
+    .catch(err => {
+      console.log(err);
+      res.render('404', { title: 'Blog not found' });
+    });
+}
+
+const blog_edit_post = (req, res) => {
+  const id = req.params.id;
+  const blog = new Blog(req.body);
+  blog._id = id;
+  blog.isNew = false;
+  const tags = req.body.tags_combined.split(',');
+  for (i = 0; i < tags.length; i++) {
+    tags[i] = tags[i].trim();
+    if (tags[i].length > 0) {
+      blog.tags.push(tags[i]);
+    }
+  }
+  blog.save()
+    .then(result => {
+      res.redirect('/blogs/'+id);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+}
+
 const blog_delete = (req, res) => {
   const id = req.params.id;
   Blog.findByIdAndDelete(id)
@@ -79,5 +113,7 @@ module.exports = {
   blog_create_get, 
   blog_create_post, 
   blog_tag_search,
+  blog_edit,
+  blog_edit_post,
   blog_delete
 }

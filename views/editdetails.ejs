@@ -1,0 +1,47 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+  <%- include("./partials/nav.ejs") %>
+
+  <div class="create-blog content">
+    <form action="#" method="POST">
+      <label for="title">Blog title:</label>
+      <input type="text" id="title" name="title" value="<%= blog.title %>" required>
+      <label for="snippet">Blog snippet:</label>
+      <input type="text" id="snippet" name="snippet" value="<%= blog.snippet %>" required>
+      <label for="body">Blog body:</label>
+      <textarea id="body" name="body" required><%= blog.body %></textarea>
+      <label for="tags_combined">Tags:</label>
+      <input type="text" id="tags_combined" name="tags_combined" placeholder="example, example2, example3", value="<% for (i = 0; i < blog.tags.length; i++) { %><%= blog.tags[i] %><% if (i != blog.tags.length - 1) { %>, <% }} %>">
+      <button>Save</button>
+
+      <script>
+        //const trashcan = document.querySelector('del');
+    
+        function deleteBlog() {
+          var blogID = '<%= blog._id %>';
+          console.log("BLOG DELETE "+blogID);
+          const endpoint = `/blogs/${blogID}`;
+    
+          fetch(endpoint, {
+            method: 'DELETE',
+          })
+          .then(response => response.json())
+          .then(data => window.location.href = data.redirect)
+          .catch(err => console.log(err));
+        };
+        
+      </script>
+      <button type="button" onclick="deleteBlog();">Delete</button>
+    </form>
+  </div>
+  <!-- <div class="details content">
+    <a class="delete" data-doc="<%= blog._id %>">
+      <img src="/trashcan.svg" alt="delete icon">
+    </a>
+  </div> -->
+
+  <%- include("./partials/footer.ejs") %>
+</body>
+</html>

@@ -7,6 +7,8 @@ router.get('/create', blogController.blog_create_get);
 router.get('/', blogController.blog_index);
 router.post('/', blogController.blog_create_post);
 router.get('/tags/:tags', blogController.blog_tag_search);
+router.post('/edit/:id', blogController.blog_edit_post)
+router.get('/edit/:id', blogController.blog_edit);
 router.get('/:id', blogController.blog_details);
 router.delete('/:id', blogController.blog_delete);
 
