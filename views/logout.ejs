@@ -1,0 +1,14 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+  <%- include("./partials/nav.ejs") %>
+
+  <form action="/logout?_method=DELETE" method="POST">
+    <button type="submit">Log Out</button>
+  </form>
+  <a href="/blogs">Cancel</a>
+
+  <%- include("./partials/footer.ejs") %>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+  <%- include("./partials/nav.ejs") %>
+
+  <form action="/register" method="POST">
+    <label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="username" required>
+    <br>
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+    <br>
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" required>
+    <br>
+    <label for="confirm_password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password Again" name="confirm_password" required>
+    <br>
+    <button type="submit">Register</button>
+  </form>
+  <a href="/login">Login</a>
+
+  <%- include("./partials/footer.ejs") %>
+</body>
+</html>
