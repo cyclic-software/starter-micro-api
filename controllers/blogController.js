@@ -4,7 +4,7 @@ const Blog = require('../models/blog');
 const blog_index = (req, res) => {
   Blog.find().sort({ createdAt: -1 })
     .then(result => {
-      res.render('index', { blogs: result, title: 'All blogs', tagsToSearch: [] });
+      res.render('index', { blogs: result, title: 'All blogs', tagsToSearch: [], user: req?.user?.username });
     })
     .catch(err => {
       console.log(err);
@@ -15,16 +15,16 @@ const blog_details = (req, res) => {
   const id = req.params.id;
   Blog.findById(id)
     .then(result => {
-      res.render('details', { blog: result, title: 'Blog Details' });
+      res.render('details', { blog: result, title: 'Blog Details', user: req?.user?.username });
     })
     .catch(err => {
       console.log(err);
-      res.render('404', { title: 'Blog not found' });
+      res.render('404', { title: 'Blog not found', user: req?.user?.username });
     });
 }
 
 const blog_create_get = (req, res) => {
-  res.render('create', { title: 'Create a new blog' });
+  res.render('create', { title: 'Create a new blog', user: req?.user?.username });
 }
 
 const blog_create_post = (req, res) => {
@@ -56,7 +56,7 @@ const blog_tag_search = (req, res) => {
   }
   Blog.find().sort({ createdAt: -1 })
     .then(result => {
-      res.render('index', { blogs: result, title: 'All blogs', tagsToSearch: tagsSearch });
+      res.render('index', { blogs: result, title: 'All blogs', tagsToSearch: tagsSearch, user: req?.user?.username });
     })
     .catch(err => {
       console.log(err);
@@ -67,11 +67,11 @@ const blog_edit = (req, res) => {
   const id = req.params.id;
   Blog.findById(id)
     .then(result => {
-      res.render('editdetails', { blog: result, title: 'Edit Blog Details' });
+      res.render('editdetails', { blog: result, title: 'Edit Blog Details', user: req?.user?.username });
     })
     .catch(err => {
       console.log(err);
-      res.render('404', { title: 'Blog not found' });
+      res.render('404', { title: 'Blog not found', user: req?.user?.username });
     });
 }
 

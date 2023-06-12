@@ -1,7 +1,7 @@
 <nav>
   <div class="site-title">
     <a href="/"><h1>Infomatrix</h1></a>
-    <p>A custom site</p>
+    <p><% if (user != null) %><%= user %></p>
   </div>
   <ul>
     <li><a href="/">Blogs</a></li>
