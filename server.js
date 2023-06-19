@@ -3,7 +3,7 @@ const { MongoClient } = require('mongodb');
 
 async function main() {
     
-    const uri = "mongodb+srv://pacholicek:nvf8394DEWeir@cluster0.elxcvlk.mongodb.net/?retryWrites=true&w=majority";
+    const uri = "mongodb+srv://pacholicek://@cluster0.elxcvlk.mongodb.net/?retryWrites=true&w=majority";
     const client = new MongoClient(uri);
 
     try {
@@ -79,7 +79,7 @@ async function findListingsWithMinimumBedroomsBathroomsAndMostRecentReviews(clie
 const app = express();
 async function slunatko() {
   
-  const uri = "mongodb+srv://pacholicek:nvf8394DEWeir@cluster0.elxcvlk.mongodb.net/?retryWrites=true&w=majority";
+  const uri = "mongodb+srv://pacholicek://@cluster0.elxcvlk.mongodb.net/?retryWrites=true&w=majority";
   const client = new MongoClient(uri);
   const result = await client.db("people").collection("profiles").find().toArray();
   //console.log(result);
