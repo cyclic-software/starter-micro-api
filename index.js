@@ -6,19 +6,21 @@ const { requestApi } = require("./values.js");
 const main = async () => {
   try {
     const info = await requestApi();
-
+    tweet(info);
     console.log("Wartość temp:", info.newResolut, info.ifRain);
   } catch (error) {
     console.log("Wystąpił błąd:", error);
   }
 };
 
-main();
-
 const tweet = async (temp) => {
   try {
-    await twitterClient.v2.tweet();
+    await twitterClient.v2.tweet(
+      `today in Glwiwice we have ${temp.newResolut} bike condition, ${info.ifRain}`
+    );
   } catch (e) {
     console.log(e);
   }
 };
+
+main();
