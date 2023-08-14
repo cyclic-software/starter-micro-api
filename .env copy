@@ -1,0 +1,12 @@
+DB_HOST = tiny.db.elephantsql.com
+DB_PORT = 5432
+DB_NAME = obfyrqrp
+DB_USER = obfyrqrp
+DB_PASS = 6Q1pGlkP08zmFiH5QuN2wrPIhXJtjXEq
+
+DB_READER_NAME = wfwppozx
+DB_READER_USER = wfwppozx
+DB_READER_PASS = mxoOdTr8VbDjfnZe959r2tcb9xBm7WvK
+
+SECRET_LOGIN = myserver
+SECRET_NAME = mypassport
