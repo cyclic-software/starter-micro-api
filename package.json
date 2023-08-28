@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "start": "nodemon ./src/index"
+    "start" : "node ./src/index",
+    "dev": "nodemon ./src/index"
   },
   "author": "sunny",
   "license": "ISC",
