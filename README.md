@@ -1,12 +1,13 @@
-# starter-micro-api
+# Sample Hardhat Project
 
-This is the simplest possible nodejs api using the base http library that responds to any request with: 
+This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+
+Try running some of the following tasks:
+
+```shell
+npx hardhat help
+npx hardhat test
+REPORT_GAS=true npx hardhat test
+npx hardhat node
+npx hardhat run scripts/deploy.js
 ```
-Yo!
-```
-
-## Deploy in under 10 seconds
-
-[![Deploy to Cyclic](https://deploy.cyclic.app/button.svg)](https://deploy.cyclic.app/)
-- Sets up instant continuous deployment on `git push`
-- Realtime backend logs and API request monitoring
