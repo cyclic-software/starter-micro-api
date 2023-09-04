@@ -1,22 +1,21 @@
-const { Sequelize } = require('sequelize')
 const { sequelize } = require('../config')
 
 // get model
-const { userModel } = require('../models/UserModel');
-const { historyUser } = require('../models/history');
+const { userModel } = require('../models/UserModel')
+const { historyUser } = require('../models/history')
 
 class gameLeaderboard {
-    // get leaderboard per game
-    static async getGameLeaderboard(gameId){
-        try{
-            // get model from each table
-            const userTable = await userModel.getModel();
-            const historyTable = await historyUser.getModel();
+  // get leaderboard per game
+  static async getGameLeaderboard (gameId) {
+    try {
+      // get model from each table
+      const userTable = await userModel.getModel()
+      const historyTable = await historyUser.getModel()
 
-            // create association
-            userTable.hasMany(historyTable, {foreignKey: "userId"});
-            
-            const [data] = await sequelize.query(`
+      // create association
+      userTable.hasMany(historyTable, { foreignKey: 'userId' })
+
+      const [data] = await sequelize.query(`
             SELECT *
             FROM (
                 SELECT 
@@ -39,12 +38,12 @@ class gameLeaderboard {
             ORDER BY game_id, rank
             ;`)
 
-            return data
-        } catch(error) {
-            console.log(error)
-            return error
-        }
-    }   
+      return data
+    } catch (error) {
+      console.log(error)
+      return error
+    }
+  }
 }
 
 module.exports = { gameLeaderboard }
