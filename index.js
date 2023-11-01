@@ -12,6 +12,7 @@ http.createServer(function (req, res) {
         res.write(data);
         console.log(data);
         console.log("error: " + err);
+        return res.end();
     });
     res.end();
 }).listen(process.env.PORT || 3010);
