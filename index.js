@@ -4,10 +4,10 @@ var fs = require('fs');
 //var data1;
 
 http.createServer(function (req, res) {
-    //console.log(`Just got a request at ${req.url}!`)
-    //res.write('Hi there, Yash!');
-    //res.write("Date-Time is: " + dt.myDateTime());
-    //res.writeHead(200, {'Content-Type': 'text/html'});
+    console.log(`Just got a request at ${req.url}!`)
+    res.write('Hi there, Yash!');
+    res.write("Date-Time is: " + dt.myDateTime());
+    res.writeHead(200, {'Content-Type': 'text/html'});
     fs.readFile('./index.html','utf8',function(err,data){
         console.log("reading data");
         res.writeHead(200, {'Content-Type': 'text/html'});
