@@ -7,7 +7,8 @@ http.createServer(function (req, res) {
     res.write('Hi there, Yash!');
     res.write("Date-Time is: " + dt.myDateTime());
     fs.readFile('index.html',function(err,data){
-        console.log(data);
+        //console.log(data);
+        res.writeHead(200, {'Content-Type': 'text/html'});
         res.write(data);
     });
     res.end();
