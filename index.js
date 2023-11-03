@@ -24,7 +24,9 @@ http.createServer(function (req, res) {
     }
     else if (req.url === '/ask')
     {
+        console.log("Inside ask");
         res.write("Hello");
+        return res.end();
     }
     //res.write("<html> <head>server Response</head><body><h1> This page was render direcly from the server <p>Hello there welcome to my website</p></h1></body></html>");
     //res.end();
