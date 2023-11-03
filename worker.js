@@ -1,4 +1,4 @@
-<script>
+
         $(function() {
             var synth = window.speechSynthesis;
 
@@ -70,4 +70,3 @@
                 });
             });
         });
-</script>
