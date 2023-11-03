@@ -22,8 +22,9 @@ http.createServer(function (req, res) {
             return res.end();
         });
     }
-    else if (req.url === '')
+    else if (req.url === '/ask')
     {
+        res.write("Hello");
     }
     //res.write("<html> <head>server Response</head><body><h1> This page was render direcly from the server <p>Hello there welcome to my website</p></h1></body></html>");
     //res.end();
