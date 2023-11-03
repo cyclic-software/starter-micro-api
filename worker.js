@@ -70,3 +70,16 @@
                 });
             });
         });
+
+document.addEventListener("DOMContentLoaded",function(){
+            console.log("Page loaded");
+            $.ajax({
+                type: "POST",
+                url: "/token",
+                data: $(this).serialize(),
+                success:function(data){
+                    $(".panel-heading").append(data);
+                }
+            })
+
+        });
