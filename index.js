@@ -29,7 +29,7 @@ http.createServer(function (req, res) {
         //res.answer = 'Hello';
         //res.write
         var answer = "Hello There!";
-        res.write(JSON.stringify({obj1}));
+        res.write(JSON.stringify({answer}));
         return res.end();
     }
     //res.write("<html> <head>server Response</head><body><h1> This page was render direcly from the server <p>Hello there welcome to my website</p></h1></body></html>");
