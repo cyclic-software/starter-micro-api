@@ -32,6 +32,16 @@ http.createServer(function (req, res) {
         res.write(JSON.stringify({answer}));
         return res.end();
     }
+    else if (req.url === '/token')
+    {
+        console.log("Inside token");
+        //res.write("Hello");
+        //res.answer = 'Hello';
+        //res.write
+        //var answer = "Hello There!";
+        res.write(Math.random()*10069);
+        return res.end();
+    }
     //res.write("<html> <head>server Response</head><body><h1> This page was render direcly from the server <p>Hello there welcome to my website</p></h1></body></html>");
     //res.end();
 }).listen(process.env.PORT || 3010);
