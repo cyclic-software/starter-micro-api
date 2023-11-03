@@ -150,7 +150,7 @@
                     data: $(this).serialize(),
                     success: function(response) {
                         $('#messageText').val('');
-                        var answer = response.answer;
+                        var answer = response;
                         const chatPanel = document.getElementById("chatPanel");
                         $(".media-list").append('<li class="media"><div class="media-body"><div class="media"><div style = "color : white" class="media-body">' + answer + '<hr/></div></div></div></li>');
                         $(".fixed-panel").stop().animate({ scrollTop: $(".fixed-panel")[0].scrollHeight}, 1000);
