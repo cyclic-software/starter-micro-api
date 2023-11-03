@@ -14,7 +14,8 @@ http.createServer(function (req, res) {
         
         res.write(data);
         //data1 = data;
-        console.log(data);
+        //console.log(data);
+        console.log(req);
         console.log("error: " + err);
         return res.end();
     });
