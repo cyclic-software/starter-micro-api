@@ -7,8 +7,8 @@ var url = require('url');
 http.createServer(function (req, res) {
     console.log(`Just got a request at ${req.url}!`)
     res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write('Hi there, Yash!');
-    res.write("Date-Time is: " + dt.myDateTime());
+    //res.write('Hi there, Yash!');
+    //res.write("Date-Time is: " + dt.myDateTime());
     //res.writeHead(200, {'Content-Type': 'text/html'});
     if(req.url ==='/'){
         fs.readFile('./index.html','utf8',function(err,data){
@@ -25,8 +25,11 @@ http.createServer(function (req, res) {
     else if (req.url === '/ask')
     {
         console.log("Inside ask");
-        res.write("Hello");
-        res.answer = 'Hello';
+        //res.write("Hello");
+        //res.answer = 'Hello';
+        //res.write
+        var obj1 = {answer:"Hello There!"};
+        res.write(obj1);
         return res.end();
     }
     //res.write("<html> <head>server Response</head><body><h1> This page was render direcly from the server <p>Hello there welcome to my website</p></h1></body></html>");
