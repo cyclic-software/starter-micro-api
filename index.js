@@ -28,7 +28,7 @@ http.createServer(function (req, res) {
         //res.write("Hello");
         //res.answer = 'Hello';
         //res.write
-        var obj1 = {answer:"Hello There!"};
+        var answer = "Hello There!";
         res.write(JSON.stringify({obj1}));
         return res.end();
     }
