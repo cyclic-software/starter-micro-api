@@ -10,7 +10,7 @@ http.createServer(function (req, res) {
     res.write('Hi there, Yash!');
     res.write("Date-Time is: " + dt.myDateTime());
     //res.writeHead(200, {'Content-Type': 'text/html'});
-    if(request.url ==='/'){
+    if(req.url ==='/'){
         fs.readFile('./index.html','utf8',function(err,data){
             console.log("reading data");
         
@@ -21,6 +21,9 @@ http.createServer(function (req, res) {
             console.log("error: " + err);
             return res.end();
         });
+    }
+    else if (req.url === '')
+    {
     }
     //res.write("<html> <head>server Response</head><body><h1> This page was render direcly from the server <p>Hello there welcome to my website</p></h1></body></html>");
     //res.end();
