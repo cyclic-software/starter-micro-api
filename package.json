@@ -1,13 +1,57 @@
 {
-  "name": "starter-micro-api",
-  "version": "1.0.0",
-  "description": "Cyclic.sh micro api starter",
+  "name": "faster",
+  "version": "0.0.1",
+  "description": "Subscribe Channel Youtube: Arifi Razzaq Ofc, Untuk Informasi Update Script Bot WhatsApp Terbaru.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js --max-old-space-size=8192"
   },
-  "author": "",
-  "license": "ISC",
+  "author": {
+    "name": "Arifi Razzaq.",
+    "email": "vr.zaq1@gmail.com",
+    "url": "https://github.com/vrzaq"
+  },
+  "license": "GPL-3.0-or-later",
   "dependencies": {
+    "@bochilteam/scraper": "^4.2.4",
+    "@bolaxd/awokwok": "^2.0.0",
+    "@kazesolo/console-table": "^1.0.0",
+    "@kazesolo/scraped": "^1.0.1",
+    "@kazesolo/text-animation": "^1.0.4",
+    "@whiskeysockets/baileys": "^6.5.0",
+    "awesome-phonenumber": "^6.2.0",
+    "chalk": "^5.3.0",
+    "express": "^4.18.2",
+    "file-type": "18.2.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "gradient-string": "^2.0.2",
+    "import-meta-resolve": "^3.0.0",
+    "javascript-obfuscator": "^4.1.0",
+    "jsdom": "^23.0.0",
+    "json-stable-stringify": "^1.0.2",
+    "link-preview-js": "^3.0.5",
+    "moment-timezone": "^0.5.43",
+    "node-fetch": "^3.3.2",
+    "node-webpmux": "^3.2.0",
+    "open": "^9.1.0",
+    "pm2": "^5.3.0",
+    "request": "^2.88.2",
+    "spinnies": "^0.5.1",
+    "syntax-error": "^1.4.0",
+    "youtube-search-api": "^1.2.1",
+    "yt-search": "^2.10.4",
+    "ytdl-core": "^4.11.5"
+  },
+  "engines": {
+    "node": ">=18",
+    "npm": "9.x"
+  },
+  "enginesStrict": true,
+  "optionalDependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "form-data": "^4.0.0",
+    "got": "^12.5.3",
+    "jimp": "^0.16.1"
   }
 }
