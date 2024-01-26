@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <form id="qrForm" class="login-form">
+            <h2>Server side</h2>
+            <label for="qrcode">QRcode text:</label>
+            <input
+                type="text"
+                id="qrcode"
+                name="qrcode" 
+                required
+            />
+
+            <button type="button" id="submitButton">Generate image</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('submitButton').addEventListener('click', function() {
+            submitForm();
+        });
+
+        function submitForm() {
+            var inputData = document.getElementById('qrcode').value;
+
+            // Make an AJAX request to the server
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/submitForm', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+
+            // Define the data to send to the server
+            var dataToSend = { inputData: inputData };
+
+            // Convert the data to a JSON string
+            var jsonData = JSON.stringify(dataToSend);
+
+            // Set up the callback function for when the request completes
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    // The request was successful, replace the entire body content with the QR code
+                    document.body.innerHTML = xhr.responseText;
+                } else {
+                    // The request failed, handle errors here
+                    console.error('Request failed. Status:', xhr.status);
+                }
+            };
+
+            // Send the request with the JSON data
+            xhr.send(jsonData);
+        }
+    </script>
+</body>
+</html>
