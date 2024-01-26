@@ -1,12 +1,8 @@
 # starter-micro-api
 
-This is the simplest possible nodejs api using the base http library that responds to any request with: 
+This is the simplest possible nodejs server using mongo and express and cors that responds to any request with: 
 ```
-Yo!
+Attendance Server Side
 ```
 
-## Deploy in under 10 seconds
-
-[![Deploy to Cyclic](https://deploy.cyclic.app/button.svg)](https://deploy.cyclic.app/)
-- Sets up instant continuous deployment on `git push`
-- Realtime backend logs and API request monitoring
+## REAL-TIME CONNECTION WITH A MONGODB SERVER
