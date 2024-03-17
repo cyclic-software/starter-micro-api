@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import 'dotenv/config';
 import mongoose from 'mongoose';
+import cookieParser from 'cookie-parser';
+import router from './router/index.js';
 
 mongoose
 	.connect(process.env.MONGO_KEY)
@@ -11,11 +13,9 @@ mongoose
 const app = express();
 
 app.use(express.json());
+app.use(cookieParser());
 app.use(cors());
-
-app.get('/', (req, res) => {
-	res.json({ message: 'Hello User!' });
-});
+app.use(router);
 
 app.listen(process.env.PORT, () => {
 	console.log('Server start:' + process.env.PORT);
