@@ -15,7 +15,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
-app.use(router);
+app.use('/api', router);
 
 app.listen(process.env.PORT, () => {
 	console.log('Server start:' + process.env.PORT);
